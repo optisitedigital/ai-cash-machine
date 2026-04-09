@@ -127,8 +127,103 @@
             text-align: center; margin-top: 40px;
         }
         .pill-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 30px 0; }
-        .pill { padding: 8px 18px; background: rgba(255,255,255,0.05); border-radius: 100px; border: 1px solid var(--glass-border); font-size: 0.85rem; font-weight: 600; }
+        .pill { padding: 8px 18px; background: rgba(255,255,255,0.05); border-radius: 100px; border: 1px solid var(--glass-border); font-size: 0.85rem; font-weight: 600; } 
 
+/* --- SECTION TÉMOIGNAGES PRO --- */
+.testimonials-section { 
+    padding: 80px 0; 
+    overflow: hidden; 
+    background: radial-gradient(circle at center, rgba(0, 98, 255, 0.05) 0%, transparent 70%);
+}
+
+.testimonials-slider { 
+    display: flex; 
+    width: 100%; 
+    overflow: hidden; 
+    position: relative;
+    /* Effet de fondu sur les côtés */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.testimonials-track { 
+    display: flex; 
+    gap: 20px; 
+    padding: 30px 0;
+    width: max-content;
+    animation: scroll-infinite 25s linear infinite; /* Vitesse pro et fluide */
+}
+
+.testimonials-track:hover { 
+    animation-play-state: paused; 
+}
+
+.testimonial-card { 
+    background: var(--bg-card); 
+    border: 1px solid var(--glass-border); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    padding: 25px; 
+    border-radius: 22px; 
+    width: 320px; 
+    flex-shrink: 0; 
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-card:hover {
+    border-color: var(--brand-primary);
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.user-info { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    margin-bottom: 15px; 
+}
+
+.user-avatar { 
+    width: 45px; 
+    height: 45px; 
+    background: var(--grad-blue); 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: 800; 
+    color: white;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0, 98, 255, 0.3);
+}
+
+.user-details { display: flex; flex-direction: column; }
+.user-name { font-weight: 700; color: var(--text-main); font-size: 1rem; }
+.user-status { font-size: 0.75rem; color: var(--brand-accent); font-weight: 600; }
+
+.testimonial-text { 
+    color: var(--text-dim); 
+    font-size: 0.92rem; 
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.stars { color: var(--brand-secondary); margin-top: 10px; font-size: 0.8rem; }
+
+/* Animation pour la boucle infinie */
+@keyframes scroll-infinite {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Adaptabilité Mobile */
+@media (max-width: 768px) {
+    .testimonial-card { width: 280px; padding: 20px; }
+    .testimonials-track { animation-duration: 18s; } /* Un peu plus rapide sur mobile pour l'engagement */
+}
         /* --- FAQ --- */
         .faq-wrapper { max-width: 800px; margin: 40px auto 0; }
         .faq-item { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 16px; margin-bottom: 12px; overflow: hidden; }
@@ -262,7 +357,97 @@
             </div>
         </div>
     </section>
+<section class="testimonials-section">
+    <div class="container" style="text-align: center; margin-bottom: 50px;">
+        <h2 data-aos="fade-up">Ils dominent le marché avec <span class="highlight">M30 System</span></h2>
+        <p style="color: var(--text-dim); margin-top: 10px;">Rejoins les +500 entrepreneurs qui ont sauté le pas.</p>
+    </div>
 
+    <div class="testimonials-slider">
+        <div class="testimonials-track" id="testimonialTrack">
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <div class="user-avatar">K</div>
+                    <div class="user-details"><span class="user-name">Kevin M.</span><span class="user-status">E-commerçant</span></div>
+                </div>
+                <p class="testimonial-text">"Mes premières ventes via WhatsApp sont tombées après 4 jours seulement. Le système est redoutable !"</p>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <div class="user-details"><span class="user-name">Amina B.</span><span class="user-status">Freelance</span></div>
+                </div>
+                <p class="testimonial-text">"Grâce aux méthodes TikTok, je n'ai plus besoin de payer de pub pour attirer des clients en RDC."</p>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <div class="user-avatar">J</div>
+                    <div class="user-details"><span class="user-name">Jordan T.</span><span class="user-status">Étudiant</span></div>
+                </div>
+                <p class="testimonial-text">"Simple et direct. Pas besoin d'être un génie de l'informatique pour réussir avec le M30."</p>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <div class="user-avatar">F</div>
+                    <div class="user-details"><span class="user-name">Fatou L.</span><span class="user-status">Coach Mobile</span></div>
+                </div>
+                <p class="testimonial-text">"La formation m'a permis de structurer mon offre et de vendre plus cher mes services à Kinshasa."</p>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <div class="user-avatar">D</div>
+                    <div class="user-details"><span class="user-name">Didier K.</span><span class="user-status">Entrepreneur</span></div>
+                </div>
+                <p class="testimonial-text">"Un investissement rentabilisé en une semaine seulement. Le support WhatsApp est un vrai plus."</p>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <div class="user-avatar">G</div>
+                    <div class="user-details"><span class="user-name">Grace Z.</span><span class="user-status">Créatrice</span></div>
+                </div>
+                <p class="testimonial-text">"Enfin une méthode qui comprend les défis du marché africain et du Mobile Money. Bravo !"</p>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <div class="user-avatar">I</div>
+                    <div class="user-details"><span class="user-name">Ibrahim S.</span><span class="user-status">Consultant</span></div>
+                </div>
+                <p class="testimonial-text">"La psychologie de vente enseignée est redoutable. Mes taux de conversion ont doublé."</p>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <div class="user-avatar">N</div>
+                    <div class="user-details"><span class="user-name">Nadia P.</span><span class="user-status">Infopreneur</span></div>
+                </div>
+                <p class="testimonial-text">"Je gère tout depuis mon téléphone pendant mes pauses. C'est la liberté totale promise."</p>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <div class="user-avatar">S</div>
+                    <div class="user-details"><span class="user-name">Serge W.</span><span class="user-status">Vendeur</span></div>
+                </div>
+                <p class="testimonial-text">"M30 n'est pas qu'une formation, c'est une machine à générer du cash quotidiennement."</p>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="user-info">
+                    <div class="user-avatar">M</div>
+                    <div class="user-details"><span class="user-name">Mireille K.</span><span class="user-status">Boutique en ligne</span></div>
+                </div>
+                <p class="testimonial-text">"Je recommande à 100% à tous ceux qui veulent devenir indépendants avec leur smartphone."</p>
+                <div class="stars">★★★★★</div>
+            </div>
+        </div>
+    </div>
+</section>
     <section>
         <div class="container">
             <h2 style="text-align: center;" data-aos="fade-up">Réponses à <span class="highlight">Tes Questions</span></h2>
